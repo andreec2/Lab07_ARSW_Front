@@ -1,0 +1,108 @@
+
+
+/* Estilo del canvas */
+.canvas {
+  width: 90%; /* Ajusta el tamaño del canvas */
+  height: auto;
+  border: 1px solid #000000; /* Bordes del canvas */
+}
+
+/* Ajustes para h1 */
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 28px;
+  letter-spacing: 1.5px;
+  margin-top: 20px;
+  margin: 10px;
+}
+
+/* Ajustes para formularios */
+form {
+  margin-top: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Estilo del botón en estado hover */
+button:hover {
+  background-color: #16A085; 
+  transform: scale(1.05); 
+}
+
+/* Estilo para la tabla */
+table {
+  width: 80%;
+  border-collapse: collapse;
+  border-radius: 8px; 
+}
+
+/* Estilo para las celdas de la tabla */
+th, td {
+  border: 1px solid #000000; 
+  padding: 10px; 
+  text-align: center;
+  font-size: 16px; 
+}
+
+/* Estilo para los botones */
+button {
+  background-color: #1ABC9C; 
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Espaciado para los encabezados de sección */
+h3 {
+  margin-top: 20px;
+  font-size: 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase; 
+}
+
+/* Estilo para el cuerpo */
+body {
+  font-family: 'Roboto', sans-serif; 
+  color: #000000; 
+  margin: 20px;
+  padding: 0;
+  height: 100vh;
+}
+
+.blueprints-container {
+  display: flex;           /* Flexbox para alineación horizontal */
+  width: 100%;             /* Asegura que ocupe todo el ancho de la pantalla */
+}
+
+.blueprints-left, .blueprints-right {
+  width: 50%;              /* Cada contenedor ocupa el 50% */
+}
+
+.blueprints-right {
+  display: flow-root;
+  align-items: center;
+}
+
+.blueprint-buttons {
+  margin-top: 20px;            /* Espacio superior */
+}
+
+.blueprint-buttons button {
+  background-color: #1ABC9C;   /* Color de fondo */
+  color: #FFFFFF;              /* Color del texto */
+  padding: 10px 20px;          /* Relleno */
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;          /* Bordes redondeados */
+  margin: 5px;                 /* Espaciado entre los botones */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Efecto hover */
+}
+
+.blueprint-buttons button:hover {
+  background-color: #16A085;   /* Color más oscuro en hover */
+  transform: scale(1.05);      /* Aumenta el tamaño ligeramente al hacer hover */
+}
