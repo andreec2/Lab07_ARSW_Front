@@ -7,6 +7,7 @@ export const initializeCanvasEventHandlers = (canvasRef, onClick) => {
       const x = event.clientX - rect.left; // Obtener la posición X
       const y = event.clientY - rect.top;  // Obtener la posición Y
       onClick({ x, y }); // Llamar a la función onClick con las coordenadas
+      console.log(x,y);
     };
   
     // Agregar el manejador de eventos al canvas

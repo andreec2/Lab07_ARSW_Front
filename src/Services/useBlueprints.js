@@ -28,6 +28,7 @@ const useBlueprint = () => {
 
   const handleOpen = (blueprint) => {
     setSelectedBlueprint(blueprint);
+    console.log(blueprint);
   };
 
   return {
