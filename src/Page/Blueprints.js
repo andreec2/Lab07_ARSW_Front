@@ -1,9 +1,9 @@
 import React from 'react';
-import BlueprintForm from './BlueprintForm';
-import BlueprintTable from './BlueprintTable';
-import BlueprintDetails from './BlueprintDetails';
 import useBlueprint from '../Services/useBlueprints';
 import '../Styles/Blueprints.css';
+import BlueprintDetails from './BlueprintDetails';
+import BlueprintForm from './BlueprintForm';
+import BlueprintTable from './BlueprintTable';
 
 const Blueprints = () => {
   const { blueprints, author, submitted, totalPoints, selectedBlueprint, handleInputChange, handleSubmit, handleOpen } = useBlueprint();
@@ -38,7 +38,6 @@ const Blueprints = () => {
           <>
             <BlueprintDetails selectedBlueprint={selectedBlueprint} />
             <div className="blueprint-buttons">
-              <button onClick>Save/Update</button>
               <button onClick>Delete</button>
             </div>
           </>
