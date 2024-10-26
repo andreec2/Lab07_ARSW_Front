@@ -40,6 +40,7 @@ const useBlueprint = () => {
     handleInputChange,
     handleSubmit,
     handleOpen,
+    setSelectedBlueprint,
   };
 };
 

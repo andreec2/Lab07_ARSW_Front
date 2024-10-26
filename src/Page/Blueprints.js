@@ -6,7 +6,23 @@ import BlueprintForm from './BlueprintForm';
 import BlueprintTable from './BlueprintTable';
 
 const Blueprints = () => {
-  const { blueprints, author, submitted, totalPoints, selectedBlueprint, handleInputChange, handleSubmit, handleOpen } = useBlueprint();
+  const { blueprints, author, submitted, totalPoints, selectedBlueprint, 
+    handleInputChange, handleSubmit, handleOpen, setSelectedBlueprint, } = useBlueprint();
+
+    const handleCreateNewBlueprint = async () => {
+      const newName = prompt("Ingrese el nombre del nuevo blueprint:");
+  
+      if (newName) {
+        // Limpia el canvas y selecciona el nuevo blueprint
+        setSelectedBlueprint({
+          name: newName,
+          points: [], 
+          version: 1, 
+          author: selectedBlueprint.author,
+        });
+        console.log("Nuevo blueprint creado:", newName);
+      }
+  };
 
   return (
     <div className="blueprints-container">
@@ -32,7 +48,7 @@ const Blueprints = () => {
 
       <div className="blueprints-right">
         <div className="blueprint-buttons">
-          <button>Create new blueprint</button>
+          <button onClick={handleCreateNewBlueprint}>Create new blueprint</button>
         </div>
         {selectedBlueprint && (
           <>
