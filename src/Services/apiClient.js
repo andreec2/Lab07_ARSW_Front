@@ -59,6 +59,16 @@ const apiClient = {
       throw error;
     }
   },
+
+  deleteBlueprint: async (author, bpname) => {
+    try {
+      const response = await axios.delete(`${API_URL}/blueprints/${author}/${bpname}`);
+      return response.data;
+    } catch (error) {
+      console.error("Error deleting blueprint:", error);
+      throw error;
+    }
+  }
   
 };
 

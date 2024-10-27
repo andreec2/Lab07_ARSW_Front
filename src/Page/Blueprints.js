@@ -18,7 +18,7 @@ const Blueprints = () => {
           name: newName,
           points: [], 
           version: 1, 
-          author: selectedBlueprint.author,
+          author: author,
         });
         console.log("Nuevo blueprint creado:", newName);
       }
@@ -52,9 +52,8 @@ const Blueprints = () => {
         </div>
         {selectedBlueprint && (
           <>
-            <BlueprintDetails selectedBlueprint={selectedBlueprint} />
+          <BlueprintDetails selectedBlueprint={selectedBlueprint} setSelectedBlueprint={setSelectedBlueprint} />
             <div className="blueprint-buttons">
-              <button onClick>Delete</button>
             </div>
           </>
         )}
