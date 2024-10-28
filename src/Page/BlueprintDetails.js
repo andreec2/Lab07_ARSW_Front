@@ -5,38 +5,28 @@ import apiClient from '../Services/apiClient';
 const BlueprintDetails = ({ selectedBlueprint, setSelectedBlueprint }) => {
   const [points, setPoints] = useState(selectedBlueprint.points || []);
   const [totalPoints, setTotalPoints] = useState(0);
-  const [isNewBlueprint, setIsNewBlueprint] = useState(!selectedBlueprint.id); // true si es un blueprint nuevo
 
   useEffect(() => {
     setPoints(selectedBlueprint.points || []);
-    setIsNewBlueprint(!selectedBlueprint.id); // Actualiza el estado al cambiar el blueprint seleccionado
   }, [selectedBlueprint]);
 
   const addPoint = (newPoint) => {
     const updatedPoints = [...points, newPoint];
     setPoints(updatedPoints);
-
     selectedBlueprint.points = updatedPoints;
-  };
-
-  const handleSaveOrUpdate = async () => {
-    if (isNewBlueprint) {
-      await createBlueprint();
-    } else {
-      await updateBlueprint();
-    }
   };
 
   const updateBlueprint = async () => {
     const blueprintData = {
       ...selectedBlueprint,
+      points,
       version: selectedBlueprint.version,
     };
 
     try {
       await apiClient.updateBlueprint(selectedBlueprint.author, selectedBlueprint.name, blueprintData);
       console.log('Blueprint actualizado correctamente');
-      handleSubmit(); 
+      handleSubmit();
     } catch (err) {
       if (err.response && err.response.status === 409) {
         alert("El blueprint ha sido actualizado por otro usuario. Recarga la página para ver los cambios.");
@@ -67,7 +57,6 @@ const BlueprintDetails = ({ selectedBlueprint, setSelectedBlueprint }) => {
       await apiClient.createBlueprint(blueprintData);
       console.log('Blueprint creado correctamente');
       handleSubmit();
-      setIsNewBlueprint(false); // Cambia a modo de edición después de crear
     } catch (err) {
       console.error('Error al crear el blueprint:', err);
     }
@@ -95,10 +84,11 @@ const BlueprintDetails = ({ selectedBlueprint, setSelectedBlueprint }) => {
         )}
       </div>
 
-      {/* Botón para guardar o actualizar el blueprint */}
-      <button onClick={handleSaveOrUpdate}>
-        {isNewBlueprint ? "Save" : "Update"}
-      </button>
+      {/* Botón para guardar*/}
+      <button onClick={createBlueprint}>Save</button>
+
+      {/* Botón para guardar*/}
+      <button onClick={updateBlueprint}>Update</button>
 
       {/* Botón para eliminar el blueprint */}
       <button onClick={deleteBlueprint}>Delete</button>

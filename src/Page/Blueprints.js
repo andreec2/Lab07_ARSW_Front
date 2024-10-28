@@ -11,18 +11,19 @@ const Blueprints = () => {
 
     const handleCreateNewBlueprint = async () => {
       const newName = prompt("Ingrese el nombre del nuevo blueprint:");
-  
+    
       if (newName) {
-        // Limpia el canvas y selecciona el nuevo blueprint
+        // Limpia el canvas y selecciona el nuevo blueprint sin un `id`, indicando que es nuevo
         setSelectedBlueprint({
+          id: null, // Al no tener `id`, se considera un blueprint nuevo
           name: newName,
-          points: [], 
-          version: 1, 
+          points: [],
+          version: 1,
           author: author,
         });
         console.log("Nuevo blueprint creado:", newName);
       }
-  };
+    };
 
   return (
     <div className="blueprints-container">
